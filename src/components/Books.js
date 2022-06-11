@@ -1,28 +1,38 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { fetchBooks } from "../redux/books/books"
-import Book from "./Book"
-import Form from "./Form"
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Books = () => {
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchBooks())
-  },[])
-  const books = useSelector(state => state.books)
+const Books = (props) => {
+  const {
+    book: {
+      title,
+      author,
+      id,
+      category,
+    },
+
+  } = props;
+
   return (
     <>
-      {Object.keys(books).map((id) => (
-        <Book
-          key={id}
-          id={id}
-          title={books[id][0].title}
-          author={books[id][0].author}
-        />
-      ))}
-      <Form/>
+      <li key={id} className="books-content">
+        {title}
+        {' by '}
+        {author}
+        {' - '}
+        {category}
+      </li>
+      <button type="button" id={id}>Remove</button>
     </>
-  )
-}
+  );
+};
+
+Books.propTypes = {
+  book: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+  }).isRequired,
+};
 
 export default Books;
