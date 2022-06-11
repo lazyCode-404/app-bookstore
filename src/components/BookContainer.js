@@ -5,14 +5,14 @@ import AddBook from './AddBook';
 const BookContainer = () => {
   const books = [
     {
-      title: 'The demon',
-      author: 'Micheal',
+      title: 'how to become a milionaire',
+      author: 'shepherd bushiri',
       id: 1,
       category: 'Novel',
     },
     {
-      title: 'City story',
-      author: 'Adams',
+      title: 'parach daily',
+      author: 'shepherd bushiri',
       id: 2,
       category: 'Novel',
     },
