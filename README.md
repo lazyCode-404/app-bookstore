@@ -2,6 +2,9 @@
 
 > A web app for adding, removing and editing books.
 
+![screenshot](bookstore-snap.png)
+
+
 
 ## Built With
 
@@ -11,7 +14,7 @@
 - React
 
 ## Live Demo (if available)
-[Live Demo Link](unavailabe)
+[Live Demo Link](http://localhost:3000/)
 
 
 
