@@ -1,26 +1,24 @@
 import React from 'react';
-import BookContent from './Book';
+import { useSelector } from 'react-redux/es/exports';
 import AddBook from './AddBook';
 
 const BookContainer = () => {
-  const books = [
-    {
-      title: 'how to become a milionaire',
-      author: 'shepherd bushiri',
-      id: 1,
-      category: 'Novel',
-    },
-    {
-      title: 'parach daily',
-      author: 'shepherd bushiri',
-      id: 2,
-      category: 'Novel',
-    },
-  ];
+  const books = useSelector((state) => state.booksReducer);
 
   return (
     <div className="main-container">
-      <BookContent books={books} />
+      {books.map((book) => (
+        <div key={book.id}>
+          <li className="books-content">
+            {book.title}
+            {' by '}
+            {book.author}
+            {' - '}
+            {book.category}
+          </li>
+          <button type="button" id={book.id}>Remove</button>
+        </div>
+      ))}
       <AddBook />
     </div>
   );
