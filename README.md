@@ -2,6 +2,9 @@
 
 > A web app for adding, removing and editing books.
 
+![screenshot](bookstore-snap.png)
+
+
 
 ## Built With
 
@@ -9,9 +12,10 @@
 - CSS
 - JAVASCRIPT
 - React
+- Redux
 
 ## Live Demo (if available)
-[Live Demo Link](unavailabe)
+[Live Demo Link](http://localhost:3000/)
 
 
 
@@ -79,4 +83,7 @@ This project is [MIT](https://github.com/SiansandaTamara/app-bookstore/blob/dev/
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
+
+
+
 
