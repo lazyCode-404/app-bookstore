@@ -7,8 +7,8 @@ import booksReducer from './books/books';
 import categoryReducer from './categories/categories';
 
 const reducer = combineReducers({
- booksReducer,
-categoryReducer,
+  booksReducer,
+  categoryReducer,
 });
 
 const store = createStore(reducer, compose(applyMiddleware(thunk, logger)));
