@@ -19,7 +19,7 @@ const initialState = [
     id: 3,
     author: 'Tamara,Emmanuel',
     title: 'The girl i Love',
-    category: '',
+    category: 'novel',
   },
 ];
 
