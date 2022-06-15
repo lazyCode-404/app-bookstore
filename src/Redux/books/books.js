@@ -7,7 +7,7 @@ const initialState = [
     id: 1,
     author: 'Tamara',
     title: 'girl fusion',
-    category: '',
+    category: '
   },
   {
     id: 2,
