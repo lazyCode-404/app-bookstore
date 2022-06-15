@@ -1,13 +1,14 @@
 import React from 'react';
-import { useSelector } from 'react-redux/es/exports';
+import { useSelector } from 'react-redux';
 import AddBook from './AddBook';
+import BookContent from './Book';
 
 const BookContainer = () => {
-  const books = useSelector((state) => state.booksReducer);
-
+  const data = useSelector((state) => state.booksReducer);
+  const books = data;
   return (
     <div className="main-container">
-      {books.map((book) => (
+      {/* {books.map((book) => (
         <div key={book.id}>
           <li className="books-content">
             {book.title}
@@ -16,9 +17,12 @@ const BookContainer = () => {
             {' - '}
             {book.category}
           </li>
-          <button type="button" id={book.id}>Remove</button>
+          <button type="button" id={book.id} onClick={
+            () => dispatch(deleteBook(book.id))
+          }>Remove</button>
         </div>
-      ))}
+      ))} */}
+      <BookContent books={books} />
       <AddBook />
     </div>
   );
