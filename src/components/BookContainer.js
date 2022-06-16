@@ -8,20 +8,6 @@ const BookContainer = () => {
   const books = data;
   return (
     <div className="main-container">
-      {/* {books.map((book) => (
-        <div key={book.id}>
-          <li className="books-content">
-            {book.title}
-            {' by '}
-            {book.author}
-            {' - '}
-            {book.category}
-          </li>
-          <button type="button" id={book.id} onClick={
-            () => dispatch(deleteBook(book.id))
-          }>Remove</button>
-        </div>
-      ))} */}
       <BookContent books={books} />
       <AddBook />
     </div>
