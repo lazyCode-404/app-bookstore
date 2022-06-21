@@ -1,24 +1,41 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Books from './Books';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import { addBook } from '../redux/books/books';
+/* eslint-disable react/jsx-key */
+const BookForm = () => {
+  const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const submitBookToStore = () => {
+    const id = uuidv4();
+    const newBook = {
+      id,
+      title,
+      category,
+    };
+    dispatch(addBook(newBook));
+  };
 
-const BookContent = ({ books }) => (
-  <ul className="book-content">
-    {
-books.map((book) => <Books key={book.id} book={book} />)
-}
-  </ul>
+  const setCategoryState = (e) => {
+    setCategory(e);
+  };
 
-);
-BookContent.propTypes = {
-  books: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
+  return (
+    <div className="form">
+      <h3>ADD NEW BOOK</h3>
+      <form className="book-form d-flex">
+        <input onChange={(e) => setTitle(e.target.value)} type="text" placeholder="enter book name" />
+        <select className="select" onChange={(e) => setCategoryState(e.target.value)}>
+          <option value="">Select</option>
+          <option value="sci-fi">sci-fi</option>
+          <option value="romance">romance</option>
+          <option value="action">action</option>
+        </select>
+        <button className="bg-blue add-button" onClick={submitBookToStore} type="button">Add</button>
+      </form>
+    </div>
+  );
 };
 
-export default BookContent;
+export default BookForm;
