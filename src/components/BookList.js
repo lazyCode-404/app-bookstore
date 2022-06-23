@@ -10,7 +10,6 @@ const BookList = () => {
     dispatch(getBooks);
   }, []);
   const books = useSelector((state) => state.booksReducer);
-  console.log(books);
   const removeBookFromStore = (id) => {
     dispatch(removeBook(id));
   };
