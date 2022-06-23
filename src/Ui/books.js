@@ -1,5 +1,5 @@
-import BookForm from '../components/bookForm';
-import BookList from '../components/bookList';
+import BookForm from '../components/BookForm';
+import BookList from '../components/BookList';
 import Header from '../components/header';
 /* eslint-disable react/jsx-key */
 const Books = () => (
