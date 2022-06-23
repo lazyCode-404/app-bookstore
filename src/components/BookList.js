@@ -10,17 +10,19 @@ const BookList = () => {
     dispatch(getBooks);
   }, []);
   const books = useSelector((state) => state.booksReducer);
+  console.log(books);
   const removeBookFromStore = (id) => {
     dispatch(removeBook(id));
   };
   return (
     books.map(({
-      category, title, id, number = Math.floor(Math.random() * 100),
+      category, title, author, id, number = Math.floor(Math.random() * 100),
     }) => (
       <div key={id} className="item-card">
         <div className="item-start">
           <div className="item-main">
             <p className="title">{title}</p>
+            <p className="author">{author}</p>
             <p className="blue-text">{category}</p>
           </div>
           <ul className="options-list">

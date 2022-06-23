@@ -6,11 +6,13 @@ import { addBook } from '../redux/books/books';
 const BookForm = () => {
   const dispatch = useDispatch();
   const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
   const submitBookToStore = () => {
     const id = uuidv4();
     const newBook = {
       id,
+      author,
       title,
       category,
     };
@@ -25,12 +27,14 @@ const BookForm = () => {
     <div className="form">
       <h3>ADD NEW BOOK</h3>
       <form className="book-form d-flex">
+        <input type="text" onChange={(e) => setAuthor(e.target.value)} placeholder="author" />
         <input onChange={(e) => setTitle(e.target.value)} type="text" placeholder="enter book name" />
         <select className="select" onChange={(e) => setCategoryState(e.target.value)}>
           <option value="">Select</option>
-          <option value="sci-fi">sci-fi</option>
-          <option value="romance">romance</option>
-          <option value="action">action</option>
+          <option value="Novel">Novel</option>
+          <option value="romance">Romance</option>
+          <option value="action">Action</option>
+          <option value="Godly">Bible Story book</option>
         </select>
         <button className="bg-blue add-button" onClick={submitBookToStore} type="button">Add</button>
       </form>

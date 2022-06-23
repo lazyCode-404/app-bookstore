@@ -2,11 +2,14 @@ const ADD_BOOK = 'bookStore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookStore/books/REMOVE_BOOK';
 const GET_BOOKS = 'bookStore/books/GET_BOOKS';
 const BASE_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/0rEygoqQl0ydZM9Udgpd/books';
+
 const initialState = [];
 
 export const addBook = (payload) => async (dispatch) => {
-  const { id, title, category } = payload;
-  if (id !== '' && title !== '' && category !== '') {
+  const {
+    id, title, author, category,
+  } = payload;
+  if (id !== '' && title !== '' && category !== '' && author !== '') {
     const request = await fetch(BASE_URL, {
       method: 'POST',
       headers: {
@@ -14,6 +17,7 @@ export const addBook = (payload) => async (dispatch) => {
       },
       body: JSON.stringify({
         item_id: id,
+        author,
         title,
         category,
       }),
@@ -48,8 +52,10 @@ export const getBooks = async (dispatch) => {
     const items = await request.json();
     const payload = [];
     Object.keys(items).forEach((id) => {
-      const { category, title } = items[id][0];
-      payload.push({ id, title, category });
+      const { category, title, author } = items[id][0];
+      payload.push({
+        id, title, author, category,
+      });
     });
     dispatch({
       type: GET_BOOKS,
